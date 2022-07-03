@@ -49,3 +49,6 @@ border-radius: 25px;
     color: red;
     font-size: 13px;
 }
+.from_left-btn{
+  cursor: pointer;
+}

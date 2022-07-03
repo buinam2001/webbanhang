@@ -14,7 +14,7 @@ function Productdes() {
 
     for(var i = 0 ; i<data.length ; i++)
     {
-        if(data[i].id == id )
+        if(data[i].id === +id )
         {
 
           product = data[i];

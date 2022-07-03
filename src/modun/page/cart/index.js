@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React, { useEffect }  from "react";
 import { createorder } from "../../slices/ordercSlies";
 import { useDispatch , useSelector} from "react-redux";
 import { removecart } from "../../slices/cartSlies";
@@ -8,7 +8,7 @@ import "./style.css";
 
 const Cart = () =>
 {
-  const [totalcart,settotalcart] = useState();
+ 
   const cart = useSelector((state) => state.cart);
 
 
@@ -18,7 +18,10 @@ const Cart = () =>
 
 
 
-
+useEffect(()=>
+{
+  window.scrollTo(0,0);
+},[])
 
 
  
@@ -40,7 +43,6 @@ const getvalue = (e) =>
 
 const order = {valuefrom, cart ,totalorder:total}
 
-// console.log(order);
 dispatch(createorder(order));
   
 }
@@ -101,7 +103,7 @@ cart ? cart.map((data,index)=>
         {
           return(
         <tr key={index} >
-          {/* <th  className="from-index">{index+1}</th> */}
+      
           <td  className="cart-row">{index+1}</td>
           <td  className="cart-row">{data.name}</td>
           <td className="cart-row"><img width="100px" src={data.photoavt} alt="nnaam" /></td>

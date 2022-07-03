@@ -1,4 +1,4 @@
-import { addcart, editcart } from "../../slices/cartSlies"
+import { addcart } from "../../slices/cartSlies"
 import React ,{useState,useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css";
@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 import CategoryPage from '../categorypage/category';
 import { MdAddShoppingCart } from "react-icons/md";
 import { useDispatch , useSelector} from "react-redux";
-
-
 import Slideshow from '../component/Slide';
 
 function Homepage() {
@@ -25,7 +23,7 @@ const dispatch = useDispatch();
   
    var newdata = {...data ,  totalcart: 1}
 
-  dispatch(addcart(newdata));
+   dispatch(addcart(newdata));
    
 
 
@@ -141,7 +139,7 @@ useEffect(() => {
                   <div key={index} className="col-6 col-md-4 col-lg-2">
                         <div className="card card-h mb-4" style={{width: '100%'}}>
                     <Link className='link-product' to={'product/'+data.id}  >
-                          <img className="card-img-top" src={data.photoavt} />
+                          <img className="card-img-top" alt={data.name} src={data.photoavt} />
                      </Link>
                           <div className="card-body">
                             <h5 className="card-text">{data.name}</h5>

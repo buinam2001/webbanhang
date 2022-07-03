@@ -1,7 +1,5 @@
 import React, {useState, useEffect } from "react";
-import {useDispatch , useSelector } from "react-redux";
 import servicerorder from "../../../services/servicerorder";
-import { getorder } from "../../slices/ordercSlies"
 import { useParams } from 'react-router-dom'
 import './style.css'
 
@@ -48,7 +46,7 @@ var orderdetail = order.cart;
           <tbody>
       
             {
-                orderdetail == undefined ? <tr></tr> :
+                orderdetail === undefined ? <tr></tr> :
                 orderdetail.map((data,index)=>
               {
                 return(
@@ -56,7 +54,7 @@ var orderdetail = order.cart;
                   <th id="table_index" scope="row">{index}</th>
                   <td className="cart-row-Order">{data.name}</td>
                   <td  className="cart-row-Order">
-                  <img style={{width: "150px"}} src={data.photoavt} />
+                  <img style={{width: "150px"}} alt={data.name} src={data.photoavt} />
                 </td>
                   <td className="cart-row-Order">{data.price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')+' vnđ'}</td>
                   <td className="cart-row-Order">{data.totalcart}</td>   

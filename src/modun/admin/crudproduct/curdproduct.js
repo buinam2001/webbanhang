@@ -2,7 +2,7 @@ import {createproduct , updateproduct} from "../../slices/productcSlies"
 import { useDispatch , useSelector} from "react-redux";
 import React, {useState , useEffect} from 'react';
 import { storage } from "../../../configfirebase";
-import { uploadBytes , ref, getDownloadURL ,uploadBytesResumable ,getStorage} from "firebase/storage";
+import { uploadBytes , ref, getDownloadURL ,uploadBytesResumable } from "firebase/storage";
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import ProductService from '../../../services/servicesProduct';
@@ -12,7 +12,6 @@ import "../../admin/style.css"
 
 
 function AddProduct() {
-// const [Category, setCategory] = useState([]);
 
 const [image, setImage] = useState(null);
 
@@ -20,7 +19,12 @@ const [urlimage, seturlimage] = useState([]);
 
 
 
-// const [loadnew, setloadnew] = useState(false);
+ 
+  
+
+
+
+
 
 const [progress, setProgress] = useState(0);
 const dispatch = useDispatch();
@@ -42,7 +46,6 @@ const [productEdit, setproductEdit] = useState({
 });
 
 
-// const data = useSelector((state) => state.productApi.find(c => c.id == +id));
 const Category = useSelector((state) => state.categoryApi);
 
 
@@ -53,7 +56,11 @@ useEffect( () => {
        let datapi = getapi.data;
        setproductEdit(datapi);  
    }
-   callapi()
+   if(id)
+   {
+
+     callapi();
+   }
    
  },[]);
 
@@ -80,7 +87,7 @@ const getvalue = (e) =>
   if(id)
   {
 
-    if(valuefrom.photoavt.length != 0)
+    if(valuefrom.photoavt.length !== 0)
     {
     dispatch(updateproduct(
       {id,
@@ -91,7 +98,7 @@ const getvalue = (e) =>
   }
   else
   {
-    if(valuefrom.photoavt.length != 0 && valuefrom.name && id == undefined)
+    if(valuefrom.photoavt.length !== 0 && valuefrom.name && id === undefined)
     {
       navigate('/admin/product');
       dispatch(createproduct(valuefrom));
@@ -113,7 +120,7 @@ const getvalue = (e) =>
     if(image)
     {
 
-
+  
       const storageRef = ref(storage, `images/${image.name}`);
     
       uploadBytes(storageRef, image).then((snapshot) => {
@@ -143,6 +150,9 @@ const getvalue = (e) =>
         });
       }
     );
+
+
+ 
 
    }
 
@@ -246,16 +256,12 @@ const getvalue = (e) =>
                rows="10" cols="100"></textarea>
             </div>
          </div>
-            
-   
-
-     
           </div>
           <div className="col-3  img-product">
             <div className="custom-file">
 
             <label className="mt-3" htmlFor="files[]">ảnh sản phẩm</label>
-              <input type="file" name="photo" className="custom-file-input" id="inputGroupFile01" 
+              <input type="file" name="photo" className="custom-file-input " id="inputGroupFile01" 
                onChange={(event) => {
                  setImage(event.target.files[0]);
             }}/>
@@ -267,12 +273,12 @@ const getvalue = (e) =>
              </div>
 
              
-              <button className="mt-2 "onClick={uploadFile}> Upload Image</button>
+              <button className="mt-2 btn-file"onClick={uploadFile}> Upload Image</button>
             </div>
             
           </div>
 
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className="btn-w btn btn-primary">Submit</button>
        
         </div>
       </div>

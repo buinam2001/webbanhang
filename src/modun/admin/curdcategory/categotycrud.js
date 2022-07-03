@@ -20,8 +20,12 @@ function CategoryAdd() {
             setcategory(datapi);
             
         }
+
+        if(id){
+
+            callapi();
+        }
        
-        callapi();
         
         
     },[]);
@@ -31,7 +35,7 @@ function CategoryAdd() {
 
         if(id)
         {
-            var name = e.target.category.value;
+            let name = e.target.category.value;
             dispatch(updateproduct({id,name}));
             navigate('/admin/category');
 
@@ -39,7 +43,7 @@ function CategoryAdd() {
         else
         {
    
-         var name = e.target.category.value;
+         let name = e.target.category.value;
             dispatch(createcategory({name}));
             navigate('/admin/category');
         }
@@ -58,7 +62,7 @@ function CategoryAdd() {
         setcategory({...category,name:data});
     }
 
-    console.log(category);
+   
   return (
       <div className="Cate">
 

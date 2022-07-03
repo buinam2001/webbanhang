@@ -47,7 +47,7 @@ const CategoryProduct = () =>
 
 
 
-    let index = datacategory.findIndex(({ name }) => (loc_xoa_dau(name).split(" ").join('').toLowerCase() == category.split(" ").join('').toLowerCase()))
+    let index = datacategory.findIndex(({ name }) => (loc_xoa_dau(name).split(" ").join('').toLowerCase() === category.split(" ").join('').toLowerCase()))
   
   
     const [ product , setproduct ] = useState();
@@ -55,38 +55,20 @@ const CategoryProduct = () =>
           var datanews = data.filter((data,index) =>{
           
           
-                return category.toLowerCase() == loc_xoa_dau(data.category.split(" ").join('').toLowerCase())
+                return category.toLowerCase() === loc_xoa_dau(data.category.split(" ").join('').toLowerCase())
           
           });
 
-const options = ['giá cao','Giá thấp' ];
-const [items, setitems] = useState(options);
-
-// const items = [];
-// console.log(options.length);
-var optionsnew;
-//  const renderoptions = () =>
-//  {
-
-  // for (const [index, value] of options.entries()) {
-  //   items.push(<option value={index+1} key={index}>{value}</option>)
-  // }
-
-  const renderoptions = () =>
- {
-
-  return items.map((data,index)=>
-    {
-        return (<option value={index+1} key={index}>{data}</option>)
-    });
-
- }
+const items = ['giá cao','Giá thấp' ];
+const [valueop,setvalueop] = useState('');
 
           useEffect(() => {
             window.scrollTo(0,0);
             setproduct(datanews)
-            renderoptions();
-            // setitems(optionsnew);
+              return function (){
+                setvalueop('');
+              }
+          
           }, [category]); 
         
 
@@ -104,7 +86,7 @@ var optionsnew;
                     }
                   if(fomat === 2)
                       {
-                        var data = [...product].sort(function(a, b){return a.price - b.price});
+                         data = [...product].sort(function(a, b){return a.price - b.price});
                         setproduct(data)
                       }
               };
@@ -121,18 +103,18 @@ var optionsnew;
           dispatch(addcart(newdata));
         
           }
-
+          
           
          const handleChange =  (e) => {
 
-
-          console.log(e.target.options[e.target.value])
+          setvalueop(e.target.value); 
+        
            setSortType(e.target.value)
           
           
           }
 
-
+       
 
       
     return(
@@ -140,24 +122,28 @@ var optionsnew;
         <div className="container">
         
        
-         <select  onChange={handleChange} className="form-select form-select-lg mb-3 fiter" aria-label=".form-select-lg example">
-         {/* <option value='0' defaultValue>sắp xếp</option> */}
-               {/* {items} */}
-               {renderoptions()}
-               {/* {optionss} */}
+         <select value={valueop} onChange={handleChange} className="form-select form-select-lg mb-3 fiter" aria-label=".form-select-lg example">
+         <option>sắp xếp</option>
+               {
+                items.map((data,index)=>
+                {
+                    return (<option value={index+1} key={index}>{data}</option>)
+                })
+               }
+            
         </select>
 
    
 
         <div className="row m-4">   
        
-      { index == -1 ?  <NotFound></NotFound> :
+      { index === -1 ?  <NotFound></NotFound> :
 
     product?.map((value,index)=>
             {
                 return (
                   <div key={index} className="col-6 col-sm-4 col-xl-2">
-                            <div className="card mb-4" style={{width: '100%'}}>
+                            <div className="card mb-4 card_cate" style={{width: '100%'}}>
                         < Link style={{textDecoration:"none",color:"black"}} to={'/product/'+value.id}>
                               <img className="card-img-top" src={value.photoavt} alt={value.namename} />
                               </Link>

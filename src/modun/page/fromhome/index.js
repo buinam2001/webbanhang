@@ -1,17 +1,14 @@
 import React, {useState} from 'react';
-import {useDispatch , useSelector } from "react-redux";
 import servicerFrom from "../../../services/servicerfrom"
-import serviceruser from '../../../services/serviceruser';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import "./style.css";
 
 
 
-
-
 function FromHome() {
   const [from, setfrom] = useState(false);
+  
 const handleSigup = () =>
 {
   setfrom(!from)
@@ -40,8 +37,9 @@ const formilogin = useFormik({
     servicerFrom.signIn(fromatvalues)
 
     localStorage.setItem("data",fromatvalues.name);
-    
 
+   
+    
   
 
   },
@@ -85,7 +83,7 @@ const formiksigup = useFormik({
     <div className="row justify-content-center flex-column-reverse flex-lg-row">
       <div className="col-12 col-lg-4 bg-white">
         {
-            from == false ? <div>
+            from === false ? <div>
 
              <h1 className="from_login">đăng nhập</h1>
               <form onSubmit={formilogin.handleSubmit}>
@@ -186,7 +184,7 @@ const formiksigup = useFormik({
       <div className="col-12 col-lg-4 d-flex flex-column justify-content-center align-items-center from_left">
         <h1>hello</h1>
         <p>nếu bạn chưa có tài khoản hãy đăng ký</p>
-        <div className="from_left-btn" onClick={handleSigup}> {  from == false ? "đăng ký" : "đăng nhập" }</div>
+        <div className="from_left-btn" onClick={handleSigup}> {  from === false ? "đăng ký" : "đăng nhập" }</div>
       </div>
     </div>
   </div>

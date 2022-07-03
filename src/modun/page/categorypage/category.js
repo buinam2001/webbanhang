@@ -12,7 +12,7 @@
   var datanews = valueproduct.filter((data,index) =>{
 
 
-        return valuecate.toLowerCase() == data.category.toLowerCase()
+        return valuecate.toLowerCase() === data.category.toLowerCase()
 
   });
 
@@ -38,7 +38,7 @@
         <div key={i} className="col-6 col-sm-4 col-xl-2 ">
           < div className="card mb-4 card-h" style={{width: '100%'}}>
             <Link style={{textDecoration:"none",color:"black"}} to={'product/'+v.id}> 
-            <img className="card-img-top" src={v.photoavt} alt="Card image cap" />
+            <img className="card-img-top" src={v.photoavt} alt={v.name} />
         </Link>
             <div className="card-body p-0">
               <h5 style={{fontSize: '15px', padding: 0, margin: 0}} className="card-title card-text">{v.name}</h5>

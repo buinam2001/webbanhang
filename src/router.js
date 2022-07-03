@@ -14,14 +14,13 @@ import AdminOrder from './modun/admin/order';
 import Manage from "./modun/admin/manage/index";
 import CurdUser from './modun/admin/curduser';
 import NotFound from './modun/notfile';
-//import DetailOrder from "./modun/admin/order/detail"
 const LazyProductDes = React.lazy(() => import("./modun/page/productdes/index"));
-const AdminProduct = React.lazy(() => import("./modun/admin/crudproduct/addprofuct"));
+const AdminProduct = React.lazy(() => import("./modun/admin/crudproduct/curdproduct"));
 const Page = React.lazy(() => import("./modun/page"));
 const FromHome = React.lazy(() => import("./modun/page/fromhome/index"));
 const DetailOrder = React.lazy(() => import("./modun/admin/order/detail"));
- const userAdmin = JSON.parse(localStorage.getItem('userAdmin'));
- const user = JSON.parse(localStorage.getItem('user'));
+const userAdmin = JSON.parse(localStorage.getItem('userAdmin'));
+const user = JSON.parse(localStorage.getItem('user'));
 
 
 function Root ()
@@ -44,7 +43,7 @@ function Root ()
           
         }>
 
-       < Route path="/" element={<Homepage />} ></Route>
+       < Route index element={<Homepage />} ></Route>
        < Route path="/cart" element={<Cart />} ></Route>
        < Route path="/categoryPage" element={<CategoryPage />} ></Route>
 

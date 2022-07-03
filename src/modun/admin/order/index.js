@@ -14,7 +14,7 @@ function AdminOrder() {
      }
      callapi()
      
-   },[]);
+   },[dispatch]);
   const dataorder = useSelector((state) => state.orderApi);
 
   const hendaldelete = (e)=>

@@ -1,12 +1,9 @@
 import { axiosClient } from "../api/axiosClient";
 import serviceruser from "./serviceruser";
-// const getAll = () => {
-//     return axiosClient.get("/category");
-//   };
-  
-//   const get = id => {
-//     return  axiosClient.get(`/category/${id}`);
-//   };
+
+
+
+
   const login = data => {
     return axiosClient.post("/auth/login", data)
     .then((response) => {
@@ -34,24 +31,37 @@ import serviceruser from "./serviceruser";
   };
 
   const signIn = data => {
-    return axiosClient.post("/auth/login", data)
-    .then((response) => {
+    
+   
+    return axiosClient.post("/auth/login", data).then((response) => {
+    
         if (response.data.access_token) {
           localStorage.setItem("user", JSON.stringify(response.data));
           window.location.reload();
+          
+         
         }
+        else{
+         
+
+
+        }
+      
         return response.data;
       })
 
    .catch((err) => {
-    alert("sai mật khẩu hoặc Tài khoản không tồn")
-  
+    console.log('message')
+    alert("sai mật khẩu hoặc Tài khoản không tồn");
+   
+       
       })
   };
 
 
 
-
+  // const navigate = useNavigate();
+  // navigate('/tét');
   
   
   const servicerFrom = {
