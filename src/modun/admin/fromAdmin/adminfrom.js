@@ -45,7 +45,7 @@ if(valuefrom.password !== 'admin')
         </div>
         <div className="form-group">
           <label htmlFor="exampleInputPassword1">Password</label>
-          <input name="password" type="text" className="form-control" id="exampleInputPassword1" />
+          <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
         </div>   
         <button type="submit" className="btn btn-primary from-title_text">Submit</button>
       </form>
