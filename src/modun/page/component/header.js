@@ -142,10 +142,7 @@ var productSearch = product.filter((s) => s.name.toLowerCase().includes(Search.t
                     <p  onClick={logout} className="auth">đăng xuất</p>      
                   </div>
                 </div>
-              <div className="list-icon">
               
-                </div>
-              <div className="list-icon" ></div>
               </div>
            
           </div>
@@ -203,10 +200,10 @@ var productSearch = product.filter((s) => s.name.toLowerCase().includes(Search.t
                                 
                                  <Link  style={{width: "50%"}} key={index} className='link-product' to={'product/'+data.id}  >
                                 <div  className="row search_product-cart g-0">
-                                <div className="col-md-4">
-                                  <img src={data.photoavt}  className="img-fluid rounded-start" alt="..." />
+                                <div className="col-md-4 search_crad">
+                                  <img src={data.photoavt}  className="img-fluid rounded-start" alt={data.name} />
                                 </div>
-                                <div className="col-md-8">
+                                <div className="col-md-8 search_crad">
                                   <div className="card-body">
                                     <h5 className="card-title">{data.name}</h5>
                                     <p className="card-text">{data.des}</p>

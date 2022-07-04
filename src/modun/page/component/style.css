@@ -87,7 +87,7 @@ background-color: darkgrey;
     box-sizing: border-box;
     padding: 10px;
     border-radius: 5px;
-    left: -31px;
+    left: -55px;
     top:45px;
     
 }
@@ -106,7 +106,7 @@ background-color: darkgrey;
     background-color: rgb(151, 151, 151);
 }
 .traingle{
-    left: 32px;
+    left: 57px;
     top:-9px;
     position: absolute;
     width: 0;
@@ -125,4 +125,16 @@ background-color: darkgrey;
 .slide
 {
     margin-top: 20px
+}
+
+
+@media (max-width: 760px) {
+
+
+    
+    .search_crad{
+        width: 50%;
+    }
+  
+
 }
