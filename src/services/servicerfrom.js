@@ -9,6 +9,7 @@ import serviceruser from "./serviceruser";
     .then((response) => {
         if (response.data.access_token) {
           localStorage.setItem("userAdmin", JSON.stringify(response.data));
+          window.location.reload();
         }
         return response.data;
       });

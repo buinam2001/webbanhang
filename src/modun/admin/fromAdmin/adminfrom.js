@@ -27,12 +27,7 @@ if(valuefrom.password !== 'admin')
    alert('sai mật khẩu');
   
 }
-else
-{
 
-  window.location.reload();
-}
-  
   
    
   }

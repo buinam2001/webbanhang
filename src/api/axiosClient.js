@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const axiosClient = axios.create({
-    baseURL: 'https://apiwebbanhang-w.herokuapp.com/',
+    baseURL: process.env.REACT_APP_API,
     headers: {
         'content-type': 'application/json',
     }
