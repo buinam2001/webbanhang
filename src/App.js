@@ -6,7 +6,7 @@ import { getproduct } from "./modun/slices/productcSlies"
 import { getcategory } from './modun/slices/categorySlies';
 function App() {
 
-  console.log(process.env.REACT_APP_API);
+
 
   const dispatch = useDispatch();
         useEffect( () => {
